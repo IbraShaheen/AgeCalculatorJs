@@ -27,10 +27,9 @@ function checkOverEighteenFn(year, month, day) {
   let y = new Date().getFullYear();
   let m = new Date().getMonth();
   let d = new Date().getDay();
-  if (y - year > 18) return true;
+  if ((y - year > 18)&&(month<=12)&&(day<=31)) return true;
   return false;
 }
-
 //checkOverEighteenFn(2010, 04, 12)
 /*let fn1 = checkParamsFn();
 let fn2 = checkOverEighteenFn();
@@ -43,17 +42,19 @@ if (fn1&&fn2) {
 }
 calculateAgeFn(1995,3,18);*/
 
-let fn1 = checkParamsFn();
-let fn2 = checkOverEighteenFn();
+
 function calculateAgeFn(year, month, day) {
+  let fn1 = checkParamsFn(year, month, day);
+  let fn2 = checkOverEighteenFn(year, month, day);
+
   let y = new Date().getFullYear();
   let m = new Date().getMonth();
   let d = new Date().getDay();
 
   if (fn1 && fn2) {
-    let a = (y-year);
+  let a = (y-year);
     //let a = ("Your Age is :" + (y-year));
-    //let a = (`Your Age is : ${y-year} years,${m-month} months and ${d-day} days`);
+  //let a = (`Your Age is : ${y-year} years,${m-month} months and ${d-day} days`);
     return a;
   } else {
     return "error:";
